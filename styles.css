@@ -253,6 +253,7 @@ body {
 }
 
 .link-button {
+  --tint: 255, 255, 255;
   display: flex;
   align-items: center;
   gap: 0.9rem;
@@ -262,17 +263,28 @@ body {
   font-weight: 600;
   text-decoration: none;
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  background: rgba(46, 19, 52, 0.35);
+  border: 1px solid rgba(var(--tint), 0.35);
+  background: rgba(var(--tint), 0.15);
   backdrop-filter: blur(6px);
   transition: background 0.25s ease, border-color 0.25s ease,
     transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+/* Color de marca de cada red (RGB) */
+.link-button--instagram { --tint: 225, 48, 108; }
+.link-button--tiktok    { --tint: 254, 44, 85; }
+.link-button--youtube   { --tint: 255, 0, 0; }
+.link-button--x         { --tint: 203, 204, 209; }
+.link-button--telegram  { --tint: 34, 158, 217; }
+.link-button--facebook  { --tint: 24, 119, 242; }
+.link-button--discord   { --tint: 88, 101, 242; }
+
 .link-button__icon {
   width: 22px;
   height: 22px;
   flex-shrink: 0;
+  color: rgb(var(--tint));
+  transition: color 0.25s ease;
 }
 
 .link-button__label {
@@ -290,10 +302,15 @@ body {
 
 .link-button:hover,
 .link-button:focus-visible {
-  background: var(--brand-red);
-  border-color: var(--brand-red);
+  background: rgba(var(--tint), 0.55);
+  border-color: rgba(var(--tint), 0.6);
   transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(237, 76, 76, 0.4);
+  box-shadow: 0 10px 24px rgba(var(--tint), 0.35);
+}
+
+.link-button:hover .link-button__icon,
+.link-button:focus-visible .link-button__icon {
+  color: #fff;
 }
 
 .link-button:hover .link-button__arrow,
