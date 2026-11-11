@@ -1,0 +1,247 @@
+/* ==========================================================================
+   Akari Studios — Página "En construcción"
+   Paleta extraída de bg.png y logo.svg
+   ========================================================================== */
+
+:root {
+  --brand-red: #ed4c4c;      /* rojo de las barras del logo */
+  --rose: #b74c62;          /* resplandor rosa del fondo */
+  --magenta: #6b2649;       /* magenta del fondo */
+  --overlay: #2e1334;       /* morado oscuro del fondo */
+  --text-soft: rgba(255, 255, 255, 0.72);
+
+  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-stack);
+  color: #fff;
+  background: var(--overlay);
+}
+
+::selection {
+  background: var(--brand-red);
+  color: #fff;
+}
+
+/* --- Fondo --------------------------------------------------------------- */
+
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(180deg, rgba(46, 19, 52, 0.52), rgba(31, 13, 38, 0.82)),
+    url("assets/bg.png");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.06);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* --- Hero ---------------------------------------------------------------- */
+
+.hero {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: clamp(2rem, 6vh, 4rem) 1.5rem;
+  text-align: center;
+}
+
+.hero__inner {
+  max-width: 42rem;
+}
+
+.hero__logo {
+  width: min(250px, 60vw);
+  height: auto;
+  margin-bottom: 2.25rem;
+  filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.35));
+}
+
+/* Barras decorativas que repiten la marca del logo */
+.bars {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 7px;
+  height: 48px;
+  margin-bottom: 2rem;
+}
+
+.bars span {
+  width: 7px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, var(--brand-red), var(--rose));
+  transform-origin: bottom;
+  animation: bar 1.6s ease-in-out infinite;
+}
+
+.bars span:nth-child(1) { height: 26px; animation-delay: 0s; }
+.bars span:nth-child(2) { height: 42px; animation-delay: 0.18s; }
+.bars span:nth-child(3) { height: 32px; animation-delay: 0.36s; }
+.bars span:nth-child(4) { height: 48px; animation-delay: 0.54s; }
+
+@keyframes bar {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.55); }
+}
+
+.hero__title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.hero__subtitle {
+  margin: 0 0 1.75rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+
+.hero__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 2.5rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.hero__status::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--brand-red);
+  animation: pulse 1.8s ease-out infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(237, 76, 76, 0.55); }
+  70%, 100% { box-shadow: 0 0 0 12px rgba(237, 76, 76, 0); }
+}
+
+.ellipsis span {
+  display: inline-block;
+  animation: blink 1.4s infinite;
+}
+
+.ellipsis span:nth-child(2) { animation-delay: 0.2s; }
+.ellipsis span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.15; }
+}
+
+/* --- Redes sociales ------------------------------------------------------- */
+
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social a {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(46, 19, 52, 0.35);
+  backdrop-filter: blur(6px);
+  transition: background 0.25s ease, border-color 0.25s ease,
+    transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.social svg {
+  width: 22px;
+  height: 22px;
+}
+
+.social a:hover,
+.social a:focus-visible {
+  background: var(--brand-red);
+  border-color: var(--brand-red);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(237, 76, 76, 0.4);
+}
+
+.social a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+/* --- Footer ---------------------------------------------------------------- */
+
+.footer {
+  padding: 1.25rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* --- Animación de aparición ------------------------------------------------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--d, 0s);
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Accesibilidad: menos movimiento --------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .bg {
+    transform: none;
+  }
+}
