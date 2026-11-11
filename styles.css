@@ -160,6 +160,7 @@ body {
 
 .social {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
 }
@@ -194,6 +195,18 @@ body {
 .social a:focus-visible {
   outline: 2px solid #fff;
   outline-offset: 3px;
+}
+
+/* Pantallas angostas: iconos más compactos y sin scroll horizontal */
+@media (max-width: 480px) {
+  .social {
+    gap: 0.75rem;
+  }
+
+  .social a {
+    width: 48px;
+    height: 48px;
+  }
 }
 
 /* --- Footer ---------------------------------------------------------------- */
