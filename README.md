@@ -19,6 +19,7 @@ Página "Próximamente" de **Akari Studios**, publicada en GitHub Pages.
 - TikTok: [@akari.mizunashi.s](https://www.tiktok.com/@akari.mizunashi.s)
 - YouTube: [Akari Studios](https://www.youtube.com/channel/UCUaiE2uTfA9UBl7Pxe_vE7w)
 - X: [@AkariStudios1](https://x.com/AkariStudios1)
+- Telegram: [@akarinizunashistudios](https://t.me/akarinizunashistudios)
 - Facebook: [Akari Studios](https://www.facebook.com/profile.php?id=61578696754457)
 - Discord: [discord.gg/ppxv5gqfu](https://discord.gg/ppxv5gqfu)
 
