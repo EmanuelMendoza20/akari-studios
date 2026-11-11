@@ -272,7 +272,7 @@ body {
 
 /* Color de marca de cada red (RGB) */
 .link-button--instagram { --tint: 225, 48, 108; }
-.link-button--tiktok    { --tint: 254, 44, 85; }
+.link-button--tiktok    { --tint: 37, 244, 238; }
 .link-button--youtube   { --tint: 255, 0, 0; }
 .link-button--x         { --tint: 203, 204, 209; }
 .link-button--telegram  { --tint: 34, 158, 217; }
