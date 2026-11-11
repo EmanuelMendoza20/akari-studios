@@ -307,8 +307,12 @@ body {
   outline-offset: 3px;
 }
 
-/* Pantallas angostas: botones más compactos */
+/* Pantallas angostas: logo y botones más compactos */
 @media (max-width: 480px) {
+  .links__logo {
+    width: min(190px, 45vw);
+  }
+
   .link-list {
     gap: 0.7rem;
   }
