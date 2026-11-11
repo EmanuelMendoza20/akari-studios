@@ -1,6 +1,7 @@
 /* ==========================================================================
-   Akari Studios — Página "En construcción"
-   Paleta extraída de bg.png y logo.svg
+   Akari Studios — Estilos compartidos
+   Páginas: portada (index.html) y linktree (links/index.html)
+   Paleta extraída de los fondos y logo.svg
    ========================================================================== */
 
 :root {
@@ -46,12 +47,19 @@ body {
   z-index: -1;
   background-image:
     linear-gradient(180deg, rgba(46, 19, 52, 0.52), rgba(31, 13, 38, 0.82)),
-    url("assets/bg.png");
+    url("assets/bg.webp");
   background-size: cover;
   background-position: center;
   transform: scale(1.06);
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
+}
+
+/* Variante del fondo para el linktree */
+.bg--links {
+  background-image:
+    linear-gradient(180deg, rgba(46, 19, 52, 0.45), rgba(31, 13, 38, 0.8)),
+    url("assets/bg-links.webp");
 }
 
 /* --- Hero ---------------------------------------------------------------- */
@@ -206,6 +214,142 @@ body {
   .social a {
     width: 48px;
     height: 48px;
+  }
+}
+
+/* --- Botón "todos los enlaces" (portada) ------------------------------------ */
+
+.cta-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2.25rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(46, 19, 52, 0.35);
+  backdrop-filter: blur(6px);
+  transition: background 0.25s ease, border-color 0.25s ease,
+    transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cta-links:hover,
+.cta-links:focus-visible {
+  background: var(--brand-red);
+  border-color: var(--brand-red);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(237, 76, 76, 0.4);
+}
+
+.cta-links:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+/* --- Linktree (links/) ------------------------------------------------------ */
+
+.links {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: clamp(2rem, 6vh, 4rem) 1.25rem;
+  text-align: center;
+}
+
+.links__inner {
+  width: min(26rem, 100%);
+}
+
+.links__logo {
+  width: min(220px, 55vw);
+  height: auto;
+  margin-bottom: 0.75rem;
+  filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.35));
+}
+
+.links__tagline {
+  margin: 0 0 2.25rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.link-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.link-button {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.95rem 1.15rem;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(46, 19, 52, 0.35);
+  backdrop-filter: blur(6px);
+  transition: background 0.25s ease, border-color 0.25s ease,
+    transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.link-button__icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.link-button__label {
+  flex: 1;
+  text-align: center;
+}
+
+.link-button__arrow {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  opacity: 0.45;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.link-button:hover,
+.link-button:focus-visible {
+  background: var(--brand-red);
+  border-color: var(--brand-red);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(237, 76, 76, 0.4);
+}
+
+.link-button:hover .link-button__arrow,
+.link-button:focus-visible .link-button__arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+.link-button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+/* Pantallas angostas: botones más compactos */
+@media (max-width: 480px) {
+  .link-list {
+    gap: 0.7rem;
+  }
+
+  .link-button {
+    padding: 0.85rem 1rem;
+    font-size: 0.95rem;
   }
 }
 

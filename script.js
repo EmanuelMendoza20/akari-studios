@@ -1,4 +1,4 @@
-/* Akari Studios — página "En construcción" */
+/* Akari Studios — scripts compartidos (portada y linktree) */
 
 // Año actual en el pie de página
 const yearEl = document.getElementById('year');
